@@ -1,3 +1,6 @@
+# Package Manager
+pnpm-lock.yaml
+
 # Logs
 logs
 *.log
