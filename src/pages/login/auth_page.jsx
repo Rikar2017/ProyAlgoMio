@@ -1,20 +1,22 @@
-import { useState } from "react";
+import ThemeController from "../../components/theme_controller";
+import Logo from "../../assets/logo.svg"
 
 function AuthPage() {
-  const [theme, setTheme] = useState(true);
-
   return (
-    // centered box
-    <div className="w-full h-full flex items-center justify-center">
-      {/* login panel */}
-      <button
-        data-theme={theme ? "light" : "dark"}
-        className="btn btn-primary"
-        onClick={() => setTheme(!theme)}
-      >
-        Start!
-      </button>
-    </div>
+    <>
+      <div className="p-3 flex items-center place-content-between">
+        <img src={Logo} alt="AlgoMio Logo" className="h-20"/>
+        <ThemeController/>
+      </div>
+
+      {/* centered box*/}
+      <div className="-z-10 absolute top-0 left-0 w-full h-full flex justify-center items-center">
+        {/* login panel */}
+        <div className=" p-4">
+          <button className="btn btn-primary">Start!</button>
+        </div>
+      </div>
+    </>
   );
 }
 
