@@ -2,13 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html{
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -22,28 +15,4 @@ html{
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  height: 100%;
-  width: 100%;
-}
-
-#root {
-  height: 100%;
-  width: 100%;
-}
-
-h1 {
-  margin: 0;
 }
