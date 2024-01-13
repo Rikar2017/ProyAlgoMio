@@ -8,7 +8,7 @@ export default function LogoSpot() {
 
   return (
     <div className="flex justify-center lg:ml-10 flex-col lg:text-left">
-      <img src={theme == "light" ? LogoDark : LogoLight} className="h-32" />
+      <img src={theme == "light" ? LogoDark : LogoLight} className="h-40 lg:h-52" />
     </div>
   );
 }
