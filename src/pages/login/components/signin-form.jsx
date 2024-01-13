@@ -1,8 +1,21 @@
 import { useForm } from "react-hook-form";
 import FormInput from "../components/form-input";
+import { object, string } from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 export default function SignInForm() {
-  const { handleSubmit, register } = useForm();
+  const { handleSubmit, register, formState } = useForm({
+    resolver: yupResolver(
+      object().shape({
+        email: string()
+          .email("It need to be a valid email")
+          .required("Email required"),
+        password: string()
+          .min(4, "Too small, it have to be bigger than 4 characters")
+          .required("password required"),
+      })
+    ),
+  });
 
   return (
     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -13,6 +26,11 @@ export default function SignInForm() {
           name="email"
           type="email"
           reg={register}
+          errorMessage={
+            formState.errors.email !== undefined
+              ? formState.errors.email.message
+              : ""
+          }
           required
         />
         <FormInput
@@ -21,6 +39,11 @@ export default function SignInForm() {
           name="password"
           type="password"
           reg={register}
+          errorMessage={
+            formState.errors.password !== undefined
+              ? formState.errors.password.message
+              : ""
+          }
           required
         />
         <div className="flex place-content-between">
@@ -34,8 +57,7 @@ export default function SignInForm() {
               <span className="label-text">Remember me</span>
               <input
                 type="checkbox"
-                name="remember"
-                {...register}
+                {...register("remember")}
                 className="checkbox checkbox-primary checkbox-sm m-1"
               />
             </label>

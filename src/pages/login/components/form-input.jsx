@@ -5,6 +5,7 @@ export default function FormInput({
   name,
   type,
   reg,
+  errorMessage,
   required = false,
 }) {
   return (
@@ -19,7 +20,7 @@ export default function FormInput({
         {...reg(name)}
         required={required}
       />
+      <label className="label label-text-alt text-error">{errorMessage}</label>
     </div>
-
   );
 }
