@@ -1,17 +1,12 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { ThemeContext } from "../context/theme-scheme.context";
 
 export default function ThemeController() {
-  const [scheme, setScheme] = useState(null);
+  const [theme, setTheme] = useContext(ThemeContext);
 
   const changeHandler = () => {
-		const isDarkPreferred = (yes) =>  yes ? "light" : "dark" 
-    let preferredTheme;
-
-    if (scheme === null)
-      preferredTheme = isDarkPreferred(window.matchMedia("(prefers-color-scheme: dark)").matches)
-    else preferredTheme = isDarkPreferred(scheme === "dark");
-
-    setScheme(preferredTheme);
+    const preferredTheme = theme === "dark" ? "light" : "dark";
+    setTheme(preferredTheme);
 
     document.documentElement.setAttribute("data-theme", preferredTheme);
   };
