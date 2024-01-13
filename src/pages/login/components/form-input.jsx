@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
-
 export default function FormInput({
   label,
   placeholder,
+  name,
   type,
-	children,
+  reg,
   required = false,
 }) {
   return (
@@ -16,9 +16,9 @@ export default function FormInput({
         type={type}
         placeholder={placeholder}
         className="input input-bordered"
+        {...reg(name)}
         required={required}
       />
-			{children}
     </div>
 
   );
