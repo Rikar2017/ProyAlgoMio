@@ -29,14 +29,27 @@ function AuthPage() {
                   type="password"
                   required
                 >
-                  <label className="label">
-                    <a href="#" className="label-text-alt link link-hover">
-                      Forgot password?
-                    </a>
-                  </label>
+                  <div className="flex place-content-between">
+                    <label className="label">
+                      <a href="#" className="label-text-alt link link-hover">
+                        Forgot password?
+                      </a>
+                    </label>
+                    <div className="flex items-center pr-4">
+                      <label className="label">Remember?</label>
+                      <input
+                        type="checkbox"
+                        checked="checked"
+                        className="checkbox checkbox-xs"
+                      />
+                    </div>
+                  </div>
                 </FormInput>
                 <div className="form-control mt-6">
-                  <button className="btn btn-primary">Login</button>
+                  <button className="btn btn-primary">
+                    <span className="loading loading-spinner" />
+                    Login
+                  </button>
                 </div>
               </form>
             </div>
