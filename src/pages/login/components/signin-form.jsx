@@ -31,7 +31,6 @@ export default function SignInForm() {
               ? formState.errors.email.message
               : ""
           }
-          required
         />
         <FormInput
           label="Password:"
@@ -44,7 +43,6 @@ export default function SignInForm() {
               ? formState.errors.password.message
               : ""
           }
-          required
         />
         <div className="flex place-content-between">
           <label className="label">
