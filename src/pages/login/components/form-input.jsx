@@ -6,8 +6,9 @@ export default function FormInput({
   type,
   reg,
   errorMessage,
-  required = false,
 }) {
+  console.log(errorMessage, name);
+  const error = errorMessage !== "" && errorMessage !== undefined;
   return (
     <div className="form-control">
       <label className="label">
@@ -16,11 +17,16 @@ export default function FormInput({
       <input
         type={type}
         placeholder={placeholder}
-        className="input input-bordered"
+        className={
+          "input input-bordered duration-500 " + (error ? "input-error" : "")
+        }
         {...reg(name)}
-        required={required}
       />
-      <label className="label label-text-alt text-error">{errorMessage}</label>
+      {error ? (
+        <label className="label label-text-alt text-error">
+          {errorMessage}
+        </label>
+      ) : undefined}
     </div>
   );
 }
